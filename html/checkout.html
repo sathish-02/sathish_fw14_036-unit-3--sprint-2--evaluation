@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>checkout</title>
+    <link rel="stylesheet" href="/css/checkout.css">
+    <!-- <script src="/js/checkout.js"></script> -->
+</head>
+<body>
+    <div id="nav">
+        <div>
+            <h1>Order Food</h1>
+        </div>
+        <div>
+            <h2 class="Highlight">Login</h2>
+            <h2 class="Highlight">Signup</h2>
+            <h2 class="Highlight">Menu</h2>
+            <a href="cart.html"><h2 id="Count">cart</h2></a>
+        </div>
+    </div>
+<div class="form">
+    <form>
+        <Label>Name</Label>
+        <input id ="name" type="text" name="Name">
+        <Label>Mail Id</Label>
+        <input id="mail" type="text" name="Mail">
+        <Label>Mobile Number</Label>
+        <input id="mob" type="number" name="Mobile">
+        <Label>Address</Label>
+        <input id="add" type="text" name="add">
+        <Label>state</Label>
+        <input id="state" type="text" name="state">
+        <input type="submit">
+
+    </form>
+</div>
+
+</body>
+</html>
+
+<script>
+    document.querySelector("form").addEventListener("submit", getDetails)
+
+    var addDetails = JSON.parse(localStorage.getItem("Address Details")) || [];
+
+    function getDetails(event){
+        event.preventDefault()
+        var name = document.querySelector("#name").value;
+        var mail = document.querySelector("#mail").value;
+        var mob = document.querySelector("#mob").value;
+        var add = document.querySelector("#add").value;
+        var state = document.querySelector("#state").value;
+        
+        var obj = {
+            Name : name,
+            MailID : mail,
+            Mobile : mob,
+            Address : add,
+            State : state,
+        };
+
+        addDetails.push(obj);
+        localStorage.setItem("Address Details", JSON.stringify(addDetails));
+        
+        setTimeout(function (){
+            alert("Your Order Is Accepted");
+        },3000);
+
+        setTimeout(function (){
+            alert("Your Order Is Being Cooked");
+        },8000);
+
+        setTimeout(function (){
+            alert("Order Deleivered");
+        },12000);
+    }
+</script>

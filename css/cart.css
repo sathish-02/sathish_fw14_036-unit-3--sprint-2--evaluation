@@ -1,0 +1,89 @@
+body {
+    background-color: black;
+}
+
+#nav {
+    width: 100%;
+    height: 60px;
+    background-color: gray;
+    border: 1px solid transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#nav > div:nth-child(1) {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    border: 1px solid transparent;
+    margin-left: 10px;
+    color: black;
+}
+
+#nav > div:nth-child(2) {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid transparent;
+    margin-left: 10px;
+    color: black;
+}
+
+#nav > div:nth-child(2) > h2:hover {
+    cursor: pointer;
+    color: red;
+}
+
+#display {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 20px;
+    padding: 20px;
+    border: 1px solid transparent;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#display > div {
+    border: 1px solid white;
+    background-color: gray;
+    border-radius: 20px;  
+}
+
+#display > div > h2,h3,h4,button {
+    padding-left: 10px;
+      
+}
+
+#Buttons {
+    width: 100%;
+    height: 60px;
+    border: 1px solid transparent;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+#Buttons > div:nth-child(1) {
+    color: white;
+}
+
+#Buttons > div:nth-child(2)>button {
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+#display > div > a >button {
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+#display > div > a > button:hover {
+   color: white;
+   background-color: blue;
+   cursor: pointer;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Cart</title>
+    <link rel="stylesheet" href="/css/cart.css">
+    <!-- <script src="/js/cart.js"></script> -->
+</head>
+<body>
+    <div id="nav">
+        <div>
+            <h1>Order Food</h1>
+        </div>
+        <div>
+            <h2 class="Highlight">Login</h2>
+            <h2 class="Highlight">Signup</h2>
+            <h2 class="Highlight">Menu</h2>
+            <h2 id="Count">CartItem</h2>
+        </div>
+    </div>
+
+    <div id = "Buttons">
+        <div><h1 id="total">Total : h1</h1></div>
+        <div>
+           <a href="/html/checkout.html"> <button>Proceed To CheckOut
+                
+            </button></a>
+        </div>
+        
+    </div>
+
+    <div id="display">
+        
+    </div>
+</body>
+</html>
+
+<script>
+    var cartProduct = JSON.parse(localStorage.getItem("cartFoods"));
+   document.querySelector("#Count").textContent= "Cart Items : " + cartProduct.length;
+
+displayItem(cartProduct);
+function displayItem(cartProduct) {
+    cartProduct.map(function (el){
+        //console.log(el)
+        var div = document.createElement("div");
+        var img = document.createElement("img");
+        img.src = el.strCategoryThumb;
+        
+        var cate = document.createElement("h2");
+        cate.textContent= el.strCategory;
+       
+        var price = document.createElement("h4");
+        price.textContent= "Price : " + Math.floor((Math.random()*500)+100);
+        
+
+        var remove = document.createElement("button");
+        remove.addEventListener("click",function(){
+            el.target.parentNode.Delete();
+        })
+        remove.textContent="Remove"
+        //console.log(price)
+        div.append(img,cate,price,remove);
+        //console.log(div)
+        document.querySelector("#display").append(div)
+
+    })
+}
+</script>
